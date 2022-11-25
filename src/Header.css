@@ -1,6 +1,7 @@
 .header {
   position: sticky;
   top: 0;
+  background-color: white;
   display: flex;
   justify-content: space-evenly;
   border-bottom: 0.1px solid lightgray;
@@ -23,7 +24,7 @@
   color: gray;
   background-color: #eef3f8;
 }
-.header__serach > input {
+.header__search > input {
   outline: none;
   border: none;
   background: none;

@@ -7,8 +7,17 @@ import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "./firebase";
+import { logout, selectUser } from "./features/userSlice";
 
 function Header() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
+  };
   return (
     <div className="header">
       <div className="header__left">
@@ -19,7 +28,7 @@ function Header() {
 
         <div className="header__search">
           <SearchIcon />
-          <input type="text" />
+          <input type="text" placeholder="Search" />
         </div>
       </div>
 
@@ -29,10 +38,7 @@ function Header() {
       <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
       <HeaderOption Icon={ChatBubbleOutlineIcon} title="Chat" />
       <HeaderOption Icon={CircleNotificationsIcon} title="Notifications" />
-      <HeaderOption
-        avatar="https://cdn.create.vista.com/api/media/small/56695433/stock-vector-female-avatar"
-        title="me"
-      />
+      <HeaderOption avatar={true} title="me" onClick={logoutOfApp} />
     </div>
   );
 }

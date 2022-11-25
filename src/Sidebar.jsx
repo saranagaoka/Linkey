@@ -1,8 +1,12 @@
 import React from "react";
 import "./Sidebar.css";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import { useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/userSlice";
+import Avatar from "@mui/material/Avatar";
 
 function Sidebar() {
+  const user = useSelector(selectUser);
   const recentItem = (topic) => (
     <div className="sidebar__recentItem">
       <span className="sidebar__hash">#</span>
@@ -16,11 +20,13 @@ function Sidebar() {
           src="https://media.istockphoto.com/id/1291199071/vector/warm-to-cool-abstract-layered-wavy-background.jpg?s=612x612&w=0&k=20&c=ntRPfcqWkNjIu6XeeNyGxSNZb1Bo4rwYiiFM1NAEAE0="
           alt="img"
         />
-        <AccountBoxIcon className="sidebar__avatar" />
-        {/* <Avatar className="sidebar__avatar" /> */}
 
-        <h2>Jane Doe</h2>
-        <h4>jane.doe@gmail.com</h4>
+        <Avatar src={user.photoUrl} className="sidebar__avatar">
+          {user.email[0]}
+        </Avatar>
+
+        <h2>{user.displayName}</h2>
+        <h4>{user.email}</h4>
       </div>
 
       <div className="sidebar__stats">
