@@ -7,12 +7,14 @@ import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+// useSelector;
 import { auth } from "./firebase";
-import { logout, selectUser } from "./features/userSlice";
+import { logout } from "./features/userSlice";
+// selectUser;
 
 function Header() {
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const logoutOfApp = () => {
     dispatch(logout());
@@ -23,7 +25,7 @@ function Header() {
       <div className="header__left">
         <img
           src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-          alt="image"
+          alt="linkedin"
         />
 
         <div className="header__search">

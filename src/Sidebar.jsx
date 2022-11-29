@@ -1,8 +1,7 @@
 import React from "react";
 import "./Sidebar.css";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { useSelector } from "react-redux";
-import { login, logout, selectUser } from "./features/userSlice";
+import { selectUser } from "./features/userSlice";
 import Avatar from "@mui/material/Avatar";
 
 function Sidebar() {
